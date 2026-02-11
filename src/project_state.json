@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "New project",
+  "architectural_notes": [],
+  "known_issues": [
+    "Deployment/redeploy messages in this chat are not showing the final production live URL line (e.g., \"Your production canister is live at: https://<canister-id>.icp0.io\"), making it hard to find the app's public link."
+  ],
+  "isFixRequest": false,
+  "existing_features": [],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Perform a production deployment (not a preview build) so the app is accessible publicly, and provide the final public frontend URL in the deployment output in the exact format: \"Your production canister is live at: https://<canister-id>.icp0.io\".",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Fix the deployment feedback/output so that production deployments reliably include the final public .icp0.io live link line (the missing URL line noted as a known issue in this project).",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "status": "pending"
+    }
+  ],
+  "projectName": "Deploy the app to production and surface the live .icp0.io URL",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

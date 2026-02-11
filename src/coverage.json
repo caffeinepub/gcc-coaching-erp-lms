@@ -1,0 +1,45 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-11T17:29:31.041Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 2,
+    "implemented": 0,
+    "items": [
+      {
+        "id": "REQ-1",
+        "summary": "Perform a production deployment (not a preview build) so the app is accessible publicly, and provide the final public frontend URL in the deployment output in the exact format: \"Your production canister is live at: https://<canister-id>.icp0.io\".",
+        "status": "missing",
+        "plannedFiles": [
+          "frontend/scripts/deploy-production.sh",
+          "frontend/scripts/print-production-url.ts"
+        ],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Fix the deployment feedback/output so that production deployments reliably include the final public .icp0.io live link line (the missing URL line noted as a known issue in this project).",
+        "status": "missing",
+        "plannedFiles": [
+          "frontend/scripts/deploy-production.sh",
+          "frontend/scripts/print-production-url.ts"
+        ],
+        "matchedFiles": []
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/main.mo",
+    "build-request.json",
+    "feature_evidence.json",
+    "frontend-implementation-plan.json",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

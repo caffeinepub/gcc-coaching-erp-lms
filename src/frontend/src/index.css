@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.5rem;
+        
+        /* Blue + White + Gold education palette */
+        --background: 0.99 0 0;
+        --foreground: 0.15 0.02 240;
+        
+        --card: 1 0 0;
+        --card-foreground: 0.15 0.02 240;
+        
+        --popover: 1 0 0;
+        --popover-foreground: 0.15 0.02 240;
+        
+        /* Primary: Deep Blue */
+        --primary: 0.45 0.18 240;
+        --primary-foreground: 0.99 0 0;
+        
+        /* Secondary: Light Blue */
+        --secondary: 0.92 0.04 240;
+        --secondary-foreground: 0.2 0.02 240;
+        
+        --muted: 0.96 0.01 240;
+        --muted-foreground: 0.5 0.01 240;
+        
+        /* Accent: Gold */
+        --accent: 0.75 0.12 60;
+        --accent-foreground: 0.15 0.02 240;
+        
+        --destructive: 0.55 0.22 25;
+        --destructive-foreground: 0.99 0 0;
+        
+        --border: 0.9 0.01 240;
+        --input: 0.9 0.01 240;
+        --ring: 0.45 0.18 240;
+        
+        --chart-1: 0.5 0.2 240;
+        --chart-2: 0.7 0.15 60;
+        --chart-3: 0.6 0.12 200;
+        --chart-4: 0.55 0.18 280;
+        --chart-5: 0.65 0.1 180;
+    }
+
+    .dark {
+        --background: 0.12 0.02 240;
+        --foreground: 0.95 0 0;
+        
+        --card: 0.18 0.02 240;
+        --card-foreground: 0.95 0 0;
+        
+        --popover: 0.15 0.02 240;
+        --popover-foreground: 0.95 0 0;
+        
+        /* Primary: Bright Blue for dark mode */
+        --primary: 0.65 0.2 240;
+        --primary-foreground: 0.12 0.02 240;
+        
+        --secondary: 0.22 0.03 240;
+        --secondary-foreground: 0.95 0 0;
+        
+        --muted: 0.25 0.02 240;
+        --muted-foreground: 0.65 0 0;
+        
+        /* Accent: Bright Gold for dark mode */
+        --accent: 0.8 0.15 60;
+        --accent-foreground: 0.12 0.02 240;
+        
+        --destructive: 0.6 0.24 25;
+        --destructive-foreground: 0.12 0.02 240;
+        
+        --border: 0.28 0.02 240;
+        --input: 0.28 0.02 240;
+        --ring: 0.65 0.2 240;
+        
+        --chart-1: 0.6 0.22 240;
+        --chart-2: 0.75 0.18 60;
+        --chart-3: 0.65 0.15 200;
+        --chart-4: 0.6 0.2 280;
+        --chart-5: 0.7 0.12 180;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        font-feature-settings: "rlig" 1, "calt" 1;
+    }
+}

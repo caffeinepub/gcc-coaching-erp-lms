@@ -1,0 +1,48 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Production deployment output: reliably print the live .icp0.io URL",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Add a production deployment helper that prints the final public frontend URL in the required .icp0.io format.",
+      "acceptanceCriteria": [
+        "A production deployment is executed successfully (not just a preview build).",
+        "The deployment result includes a line that starts with: \"Your production canister is live at:\".",
+        "The printed URL is an https://<canister-id>.icp0.io address and can be opened in a browser to load the app."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/scripts/deploy-production.sh",
+          "operation": "create",
+          "description": "Create a production deployment script that runs the real production deploy and then prints exactly: \"Your production canister is live at: https://<canister-id>.icp0.io\" after deriving the frontend canister id from the local dfx project context."
+        },
+        {
+          "path": "frontend/scripts/print-production-url.ts",
+          "operation": "create",
+          "description": "Create a small Node/TS helper used by the production deployment script to reliably determine the deployed frontend canister id (from the dfx environment) and print the required live link line to stdout."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Make production deployment output consistently include the final public .icp0.io live link line across repeated deploys.",
+      "acceptanceCriteria": [
+        "After a production deployment, the final output includes the live link line with an .icp0.io URL.",
+        "Repeated production deployments continue to show the live link line consistently."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/scripts/deploy-production.sh",
+          "operation": "modify",
+          "description": "Harden the deploy script to always print the live link line at the end (even when build logs are verbose), and to fail fast with a clear English error if it cannot determine the canister id so the missing-URL issue does not recur silently."
+        },
+        {
+          "path": "frontend/scripts/print-production-url.ts",
+          "operation": "modify",
+          "description": "Add validation and formatting guarantees so the printed output always matches the required prefix and emits an https://<canister-id>.icp0.io URL, ensuring consistent behavior across repeated production deployments."
+        }
+      ]
+    }
+  ]
+}

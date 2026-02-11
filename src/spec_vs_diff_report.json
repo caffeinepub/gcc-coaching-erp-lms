@@ -1,0 +1,46 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-11T17:29:31.036Z",
+  "summary": "The diff does not implement production deployment or any deployment-output changes to print the required .icp0.io URL line. It mainly updates backend canister code and updates project_state.json to track the requests as pending.",
+  "missing_requirements": [
+    {
+      "id": "REQ-1",
+      "requirement": "Perform a production deployment (not a preview build) so the app is accessible publicly, and provide the final public frontend URL in the deployment output in the exact format: \"Your production canister is live at: https://<canister-id>.icp0.io\".",
+      "reason": "No changes in the diff indicate a production deployment was executed or that deployment output was modified to print the exact required line/URL format. The only related mention is in project_state.json where the request is marked pending.",
+      "evidence": [
+        "project_state.json",
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "requirement": "Fix the deployment feedback/output so that production deployments reliably include the final public .icp0.io live link line.",
+      "reason": "There are no modifications to deployment tooling, scripts, CI, or output formatting shown in the diff. project_state.json notes the issue but does not implement a fix.",
+      "evidence": [
+        "project_state.json"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Backend canister domain logic additions/changes (classes/courses/students/teachers/lessons/subscription/access-control helpers) unrelated to deployment output visibility.",
+      "reason": "BuildRequest non-goals explicitly exclude implementing new product features beyond deployment/output visibility; the backend code changes appear to add/modify application domain functionality rather than deployment behavior.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "description": "Tracking the deployment requests as pending feature requests in project_state.json without implementing them.",
+      "reason": "The BuildRequest asks to deploy and fix output; updating internal project tracking is not requested as a deliverable and does not satisfy the deployment/output requirements.",
+      "evidence": [
+        "project_state.json"
+      ]
+    }
+  ],
+  "confidence": 0.78,
+  "changed_files": [
+    "backend/main.mo",
+    "project_state.json"
+  ]
+}

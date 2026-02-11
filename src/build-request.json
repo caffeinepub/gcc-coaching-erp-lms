@@ -1,0 +1,63 @@
+{
+  "kind": "build_request",
+  "title": "Deploy the app to production and surface the live .icp0.io URL",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Perform a production deployment (not a preview build) so the app is accessible publicly, and provide the final public frontend URL in the deployment output in the exact format: \"Your production canister is live at: https://<canister-id>.icp0.io\".",
+      "target": "unknown",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Deploy to production"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A production deployment is executed successfully (not just a preview build).",
+        "The deployment result includes a line that starts with: \"Your production canister is live at:\".",
+        "The printed URL is an https://<canister-id>.icp0.io address and can be opened in a browser to load the app."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Fix the deployment feedback/output so that production deployments reliably include the final public .icp0.io live link line (the missing URL line noted as a known issue in this project).",
+      "target": "unknown",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Deploy to production"
+        ]
+      },
+      "acceptanceCriteria": [
+        "After a production deployment, the final output includes the live link line with an .icp0.io URL.",
+        "Repeated production deployments continue to show the live link line consistently."
+      ]
+    }
+  ],
+  "constraints": [
+    "Use English for any user-facing text."
+  ],
+  "nonGoals": [
+    "Implementing new product features (ERP/LMS modules) beyond deployment and deployment output visibility.",
+    "Changing application UI/UX unrelated to deployment."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}
